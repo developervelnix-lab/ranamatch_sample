@@ -214,7 +214,7 @@
         /* ─── NAV ─── */
         .nav {
             position: fixed;
-            top: 20px; left: 50%;
+            top: 8px; left: 50%;
             transform: translateX(-50%);
             width: calc(100% - 48px);
             max-width: 1600px;
@@ -223,7 +223,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 24px;
-            height: 70px;
+            height: 54px;
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(32px) saturate(1.8);
             -webkit-backdrop-filter: blur(32px) saturate(1.8);
@@ -373,7 +373,7 @@
         /* ─── SPORT RAIL ─── */
         .sport-rail {
             position: fixed;
-            top: 106px; left: 0; right: 0;
+            top: 72px; left: 0; right: 0;
             z-index: 999;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
@@ -418,7 +418,7 @@
 
         /* ─── MAIN ─── */
         .main {
-            padding-top: 164px;
+            padding-top: 118px;
             position: relative;
             z-index: 1
         }
@@ -428,15 +428,15 @@
             display: grid;
             grid-template-columns: 1fr 350px;
             gap: 18px;
-            padding: 28px 44px 24px;
+            padding: 8px 44px 8px;
         }
 
         .hero-banner {
             background: linear-gradient(145deg, #FFFFFF 0%, #F5F3FF 60%, #EBE8FF 100%);
             border: 1px solid rgba(109, 40, 217, 0.12);
             border-radius: var(--r-2xl);
-            padding: 56px 62px;
-            min-height: 310px;
+            padding: 24px 36px;
+            min-height: 220px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -559,14 +559,14 @@
 
         .hero-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 72px;
+            font-size: 52px;
             line-height: 0.95;
             font-weight: 800;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
             color: var(--text-100);
-            margin-bottom: 22px;
+            margin-bottom: 8px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-title em {
@@ -585,14 +585,14 @@
         }
 
         .hero-sub {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-400);
             font-weight: 400;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             max-width: 480px;
-            line-height: 1.75;
+            line-height: 1.5;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-actions {
@@ -600,7 +600,84 @@
             gap: 14px;
             align-items: center;
             position: relative;
-            z-index: 1
+            z-index: 2;
+        }
+
+        /* ─── HERO 3D GRAPHICS ─── */
+        .hero-graphics {
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 50%;
+            pointer-events: none;
+            overflow: visible;
+            z-index: 1;
+        }
+
+        .hg-card {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.1));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.9);
+            border-radius: 24px;
+            box-shadow: 0 24px 48px rgba(14,11,37,0.08), inset 0 2px 4px rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hg-card-1 {
+            width: 160px; height: 180px;
+            top: 15%; right: 10%;
+            transform: perspective(1000px) rotateY(-20deg) rotateX(15deg);
+            animation: float-1 6s ease-in-out infinite alternate;
+        }
+        
+        .hg-card-1 i {
+            font-size: 72px;
+            background: linear-gradient(135deg, var(--gold), #EA580C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 12px 16px rgba(167,119,23,0.3));
+        }
+
+        .hg-card-2 {
+            width: 120px; height: 120px;
+            bottom: 20%; right: 45%;
+            border-radius: 50%;
+            transform: perspective(1000px) rotateY(25deg) rotateX(-15deg);
+            animation: float-2 7s ease-in-out infinite alternate-reverse;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+            border-color: rgba(109,40,217,0.4);
+            box-shadow: 0 20px 40px rgba(109,40,217,0.1), inset 0 2px 4px rgba(255,255,255,0.9);
+        }
+
+        .hg-card-2 i {
+            font-size: 52px;
+            background: linear-gradient(135deg, var(--violet-bright), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 10px 14px rgba(109,40,217,0.2));
+        }
+
+        .hg-orb {
+            position: absolute;
+            width: 300px; height: 300px;
+            top: 25%; right: 15%;
+            background: radial-gradient(circle, var(--gold) 0%, transparent 60%);
+            opacity: 0.12;
+            filter: blur(40px);
+            animation: pulse-orb 4s infinite alternate;
+        }
+
+        @keyframes float-1 {
+            0% { transform: perspective(1000px) rotateY(-20deg) rotateX(15deg) translateY(0); }
+            100% { transform: perspective(1000px) rotateY(-10deg) rotateX(25deg) translateY(-25px); }
+        }
+        
+        @keyframes float-2 {
+            0% { transform: perspective(1000px) rotateY(25deg) rotateX(-15deg) translateY(0); }
+            100% { transform: perspective(1000px) rotateY(15deg) rotateX(-30deg) translateY(-35px); }
         }
 
         .btn-cta {
@@ -661,8 +738,8 @@
         .hero-metrics {
             display: flex;
             gap: 44px;
-            margin-top: 36px;
-            padding-top: 28px;
+            margin-top: 16px;
+            padding-top: 12px;
             border-top: 1px solid rgba(14, 11, 37, 0.06);
             position: relative;
             z-index: 1;
@@ -700,7 +777,7 @@
         }
 
         .live-header {
-            padding: 15px 20px;
+            padding: 8px 12px;
             background: linear-gradient(90deg, rgba(255,58,66,0.04) 0%, transparent 100%);
             display: flex;
             align-items: center;
@@ -712,7 +789,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             color: var(--crimson-bright);
             letter-spacing: 1.5px;
@@ -730,12 +807,12 @@
 
         .event-count {
             font-family: 'Space Mono', monospace;
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-600);
         }
 
         .live-match {
-            padding: 14px 20px;
+            padding: 8px 12px;
             border-bottom: 1px solid rgba(14, 11, 37, 0.05);
             cursor: pointer;
             transition: all 0.18s;
@@ -759,20 +836,20 @@
             align-items: center;
             gap: 6px;
             font-family: 'Space Mono', monospace;
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-600);
             letter-spacing: 0.8px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
-        .match-meta i { font-size: 11px; color: var(--gold) }
+        .match-meta i { font-size: 10px; color: var(--gold) }
 
         .match-body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .teams { display: flex; flex-direction: column; gap: 4px }
@@ -795,7 +872,7 @@
 
         .score {
             font-family: 'Outfit', sans-serif;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             letter-spacing: -0.5px;
             color: var(--gold);
@@ -818,7 +895,7 @@
             background: var(--black-3);
             border: 1px solid rgba(14, 11, 37, 0.05);
             border-radius: 7px;
-            padding: 7px 4px;
+            padding: 5px 4px;
             text-align: center;
             cursor: pointer;
             transition: all 0.18s;
@@ -854,7 +931,7 @@
 
         .odd-val {
             font-family: 'Outfit', sans-serif;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--gold);
             display: block;
@@ -1461,7 +1538,7 @@
             color: var(--gold);
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
             margin-bottom: 14px;
             letter-spacing: 0.4px;
             text-shadow: 0 0 12px rgba(167,119,23,0.2);
@@ -1899,51 +1976,165 @@
         /* ── LIVE WIN TOAST ── */
         #toast-container {
             position: fixed;
-            bottom: 24px; left: 24px;
+            bottom: 28px; left: 28px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             z-index: 10000;
             pointer-events: none;
         }
 
         .win-toast {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-left: 4px solid var(--emerald);
-            border-radius: var(--r-md);
+            position: relative;
+            width: 300px;
+            background: linear-gradient(145deg, #1a1535 0%, #0e0b25 100%);
+            border-radius: 20px;
             padding: 14px 18px;
             display: flex;
             align-items: center;
             gap: 14px;
-            box-shadow: 0 12px 32px rgba(14, 11, 37, 0.08);
-            animation: toast-in 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards, toast-out 0.5s cubic-bezier(0.23, 1, 0.32, 1) 4.5s forwards;
+            box-shadow:
+                0 28px 64px rgba(0,0,0,0.4),
+                0 0 0 1px rgba(255,255,255,0.07) inset,
+                0 1px 0 rgba(255,255,255,0.12) inset;
+            animation: toast-in 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       toast-out 0.45s cubic-bezier(0.55, 0, 1, 0.45) 4.5s forwards;
             pointer-events: auto;
+            overflow: hidden;
+        }
+
+        .win-toast::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20px; right: 20px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(16,212,127,0.9), transparent);
+        }
+
+        .win-toast::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.035), transparent);
+            animation: toast-shimmer 3.5s ease-in-out 0.6s infinite;
+        }
+
+        @keyframes toast-shimmer {
+            0%       { left: -100%; }
+            50%, 100% { left: 160%; }
         }
 
         .toast-icon {
-            width: 36px; height: 36px;
-            background: linear-gradient(135deg, rgba(5,150,105,0.1), rgba(16,212,127,0.2));
-            border-radius: 50%;
+            flex-shrink: 0;
+            width: 46px; height: 46px;
+            background: linear-gradient(135deg, rgba(16,212,127,0.18) 0%, rgba(5,150,105,0.08) 100%);
+            border: 1px solid rgba(16,212,127,0.28);
+            border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            color: var(--emerald);
-            font-size: 18px;
-            box-shadow: 0 0 12px rgba(5,150,105,0.2);
+            color: #10D47F;
+            font-size: 22px;
+            box-shadow: 0 0 24px rgba(16,212,127,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+            position: relative;
         }
 
-        .toast-body { display: flex; flex-direction: column; gap: 3px; }
-        .toast-title { font-size: 12px; color: var(--text-400); font-family: 'Inter', sans-serif; }
-        .toast-amount { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: var(--text-100); }
-        .toast-amount span { color: var(--emerald); }
+        .toast-icon::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 19px;
+            background: radial-gradient(circle, rgba(16,212,127,0.1) 0%, transparent 65%);
+            animation: pulse-glow 2.2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; transform: scale(0.92); }
+            50%       { opacity: 1;   transform: scale(1.08); }
+        }
+
+        .toast-body {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .toast-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .toast-title {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .toast-title b {
+            color: rgba(255,255,255,0.88);
+            font-weight: 600;
+        }
+
+        .toast-badge {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255,58,66,0.12);
+            color: #FF5A60;
+            font-family: 'Space Mono', monospace;
+            font-size: 8px;
+            font-weight: 700;
+            padding: 3px 8px 3px 6px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border: 1px solid rgba(255,58,66,0.22);
+        }
+
+        .toast-badge::before {
+            content: '';
+            width: 5px; height: 5px;
+            background: #FF5A60;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #FF3A42;
+            animation: blink 1.2s ease-in-out infinite;
+        }
+
+        .toast-amount {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #10D47F 0%, #06b96f 50%, #34D399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 14px rgba(16,212,127,0.3));
+        }
+
+        .toast-game {
+            font-size: 10px;
+            color: rgba(255,255,255,0.28);
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
 
         @keyframes toast-in {
-            from { transform: translateX(-120%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from { transform: translateX(-130%) scale(0.82); opacity: 0; }
+            to   { transform: translateX(0)     scale(1);    opacity: 1; }
         }
         @keyframes toast-out {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(-120%); opacity: 0; }
+            from { transform: translateX(0)     scale(1);    opacity: 1; }
+            to   { transform: translateX(-130%) scale(0.88); opacity: 0; }
         }
 
         /* ─── STAGGER ANIMATION HELPER ─── */
@@ -2125,6 +2316,15 @@
                     <div class="hero-corner-tl"></div>
                     <div class="hero-corner-br"></div>
                     <div class="hero-corner-tr"></div>
+                    <div class="hero-graphics">
+                        <div class="hg-orb"></div>
+                        <div class="hg-card hg-card-1">
+                            <i class="ti ti-trophy"></i>
+                        </div>
+                        <div class="hg-card hg-card-2">
+                            <i class="ti ti-cards"></i>
+                        </div>
+                    </div>
                     <div class="live-badge"><span class="dot"></span> IPL 2026 · Season Live</div>
                     <div class="hero-title">
                         BET WITH<br>
@@ -2626,11 +2826,14 @@
     </div>
 
     <!-- BET SLIP -->
-    <div class="betslip">
+    <div class="betslip" id="main-betslip">
         <div class="betslip-header">
-            <i class="ti ti-receipt" style="font-size:16px"></i>
-            Bet Slip
-            <span class="bs-count">2 bets</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+                <i class="ti ti-receipt" style="font-size:16px"></i>
+                Bet Slip
+                <span class="bs-count">2 bets</span>
+            </div>
+            <i class="ti ti-x bs-close" style="font-size:18px; cursor:pointer; opacity:0.6; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'"></i>
         </div>
         <div class="bs-item">
             <div class="bs-match">MI vs CSK</div>
@@ -2656,6 +2859,17 @@
         window.addEventListener('scroll', () => {
             const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
             scrollBar.style.width = pct + '%';
+        });
+
+        /* ── BET SLIP CLOSE ── */
+        document.querySelector('.bs-close').addEventListener('click', () => {
+            const betslip = document.getElementById('main-betslip');
+            betslip.style.transition = 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)';
+            betslip.style.transform = 'translateY(150%) scale(0.9)';
+            betslip.style.opacity = '0';
+            setTimeout(() => {
+                betslip.style.display = 'none';
+            }, 400);
         });
 
         /* ── CURSOR SPOTLIGHT ── */
@@ -2867,34 +3081,36 @@
         });
 
         /* ── LIVE WIN TOAST NOTIFICATIONS ── */
-        const names = ['Rahul K.', 'Priya M.', 'Arjun S.', 'Deepak R.', 'Sneha T.', 'Vikram P.', 'Neha G.'];
-        const games = ['Aviator', 'Lightning Roulette', 'Teen Patti', 'IPL Match', 'Blackjack VIP', 'Crazy Time'];
-        
+        const names = ['Rahul K.', 'Priya M.', 'Arjun S.', 'Deepak R.', 'Sneha T.', 'Vikram P.', 'Neha G.', 'Amit J.'];
+        const games = ['Aviator', 'Lightning Roulette', 'Teen Patti', 'IPL T20', 'Blackjack VIP', 'Crazy Time', 'Dragon Tiger'];
+        const icons = ['ti-crown', 'ti-trophy', 'ti-cards', 'ti-poker-chip', 'ti-cash'];
+
         function createToast() {
             const container = document.getElementById('toast-container');
             if (!container) return;
-            
+
             const toast = document.createElement('div');
             toast.className = 'win-toast';
-            
-            const name = names[Math.floor(Math.random() * names.length)];
-            const game = games[Math.floor(Math.random() * games.length)];
-            const amount = Math.floor(Math.random() * 80000 + 2000).toLocaleString('en-IN');
-            
+
+            const name  = names[Math.floor(Math.random() * names.length)];
+            const game  = games[Math.floor(Math.random() * games.length)];
+            const icon  = icons[Math.floor(Math.random() * icons.length)];
+            const amount = Math.floor(Math.random() * 90000 + 3000).toLocaleString('en-IN');
+
             toast.innerHTML = `
-                <div class="toast-icon"><i class="ti ti-cash"></i></div>
+                <div class="toast-icon"><i class="ti ${icon}"></i></div>
                 <div class="toast-body">
-                    <div class="toast-title"><b>${name}</b> just won on ${game}</div>
-                    <div class="toast-amount"><span>₹${amount}</span> Payout</div>
+                    <div class="toast-header-row">
+                        <div class="toast-title"><b>${name}</b> just won</div>
+                        <div class="toast-badge">Live</div>
+                    </div>
+                    <div class="toast-amount">₹${amount}</div>
+                    <div class="toast-game">${game}</div>
                 </div>
             `;
-            
+
             container.appendChild(toast);
-            
-            // Remove after animation completes
-            setTimeout(() => {
-                toast.remove();
-            }, 5000);
+            setTimeout(() => { toast.remove(); }, 5200);
         }
 
         // Trigger first toast after 2s, then randomly every 5-8s
